@@ -35,6 +35,9 @@ public class SharedBicycle {
     if("<n/a>".equals(singleton.currentRider)) {
       throw new IllegalStateException("Bicycle needs to be ridden!");
     }
+    if(currentSpeed == 2) {
+      return; //2 is the max speed, speed shall not be greater than 2
+    }
     currentSpeed += 1;
   }
 

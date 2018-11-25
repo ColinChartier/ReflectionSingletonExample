@@ -20,8 +20,14 @@ public class SharedBicycleTests {
 
   @Test
   public void testSpeedUp() {
-    //I want to test that speeding up twice works, but I can't
-    //because the maximum speed is 2, and the speed is only 1,
-    //and speed is a private field
+    SharedBicycle b = SharedBicycle.singletonValue();
+    b.mount("steve");
+    assertEquals(0, b.getCurrentSpeed());
+    b.accelerate();
+    assertEquals(1, b.getCurrentSpeed());
+    b.accelerate();
+    assertEquals(2, b.getCurrentSpeed());
+    b.accelerate(); //we've hit max speed, should not accelerate
+    assertEquals(2, b.getCurrentSpeed());
   }
 }
